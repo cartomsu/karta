@@ -1,8 +1,5 @@
-{{ $jsHome := resources.Get "js/home.js" | resources.Minify | resources.Fingerprint "sha512" }}
-<div id="page">
+{{ define "main" }}
+  <!-- copy paste from themes/congo/layouts/index.html -->
   {{ partial "partials/home/page.html" . }}
-</div>
-<div id="profile" class="hidden h-full">
-  {{ partial "partials/home/profile.html" . }}
-</div>
-<script defer type="text/javascript" src="{{ $jsHome.RelPermalink }}" integrity="{{ $jsHome.Data.Integrity }}"></script>
+  {{ partial "partials/home-section.html" }}
+{{ end }}
