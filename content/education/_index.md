@@ -9,16 +9,7 @@ showEdit: false
 showPagination: false
 showReadingTime: false
 sharingLinks: false
+groupByYear: false
 ---
 
-## Адрес
-
-lorem
-
-## Электронная почта
-
-lorem@ipsum.su
-
-## Телефон
-
-88005553535
+Кафедра реализует программы бакалавриата и магистратуры
