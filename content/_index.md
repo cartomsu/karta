@@ -1,6 +1,7 @@
 ---
 title: "Кафедра картографии и геоинформатики 🗺️ 💻 :artificial_satellite:"
 description: "This is a demo of the Congo theme for Hugo."
+layout: "home/custom"
 ---
 
 {{< alert >}}
