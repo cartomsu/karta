@@ -21,7 +21,7 @@ mainSections = ["section1", "section2"]
 [footer]
   showCopyright = true
   showThemeAttribution = true
-  showAppearanceSwitcher = false
+  showAppearanceSwitcher = true
   showScrollToTop = true
 
 [homepage]
@@ -29,9 +29,9 @@ mainSections = ["section1", "section2"]
   showRecent = false
 
 [article]
-  showDate = true
+  showDate = false
   showDateUpdated = false
-  showAuthor = true
+  showAuthor = false
   showBreadcrumbs = false
   showDraftLabel = true
   showEdit = false
@@ -40,18 +40,18 @@ mainSections = ["section1", "section2"]
   showHeadingAnchors = true
   showPagination = false
   invertPagination = false
-  showReadingTime = true
+  showReadingTime = false
   showTableOfContents = false
   showTaxonomies = false
   showWordCount = false
   showComments = false
-  sharingLinks = ["telegram", "email"]
+  # sharingLinks = ["telegram", "email"]
 
 [list]
   showBreadcrumbs = false
   showSummary = false
   showTableOfContents = false
-  groupByYear = true
+  groupByYear = false
 
 [sitemap]
   excludedKinds = ["taxonomy", "term"]
