@@ -13,37 +13,37 @@
 [[main]]
   name = "О кафедре"
   pageRef = "about"
-  weight = 10
+  weight = 1
 
 [[main]]
   name = "Образование"
   pageRef = "education"
-  weight = 20
+  weight = 2
 
 [[main]]
   name = "Наука"
   pageRef = "science"
-  weight = 30
+  weight = 3
 
 [[main]]
   name = "Услуги"
   pageRef = "services"
-  weight = 40
+  weight = 4
 
 [[main]]
   name = "Новости"
   pageRef = "news"
-  weight = 50
+  weight = 5
 
 [[main]]
   name = "Блог"
   pageRef = "blog"
-  weight = 60
+  weight = 6
 
 [[main]]
   name = "Контакты"
   pageRef = "contacts"
-  weight = 70
+  weight = 7
 
 
 # -- Footer Menu --
@@ -53,35 +53,35 @@
 [[footer]]
   name = "О кафедре"
   pageRef = "about"
-  weight = 10
+  weight = 1
 
 [[footer]]
   name = "Образование"
   pageRef = "education"
-  weight = 20
+  weight = 2
 
 [[footer]]
   name = "Наука"
   pageRef = "science"
-  weight = 30
+  weight = 3
 
 [[footer]]
   name = "Услуги"
   pageRef = "services"
-  weight = 40
+  weight = 4
 
 [[footer]]
   name = "Новости"
   pageRef = "news"
-  weight = 50
+  weight = 5
 
 [[footer]]
   name = "Блог"
   pageRef = "blog"
-  weight = 60
+  weight = 6
 
 [[footer]]
   name = "Контакты"
   pageRef = "contacts"
-  weight = 70
+  weight = 7
 
