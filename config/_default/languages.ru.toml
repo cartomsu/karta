@@ -8,7 +8,7 @@ rtl = false
 title = "Карта"
 logo = "img/logo.png"
 description = "Веб-сайт кафедры картографии и геоинформатики географического факультета МГУ имени М. В. Ломоносова"
-copyright = "Copy, _right?_ :thinking_face:"
+copyright = "&copy;"
 
 dateFormat = "2 January 2006"
 
