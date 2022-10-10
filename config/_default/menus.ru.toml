@@ -25,20 +25,20 @@
   pageRef = "science"
   weight = 3
 
-[[main]]
-  name = "Услуги"
-  pageRef = "services"
-  weight = 4
+# [[main]]
+#   name = "Услуги"
+#   pageRef = "services"
+#   weight = 4
 
-[[main]]
-  name = "Новости"
-  pageRef = "news"
-  weight = 5
+# [[main]]
+#   name = "Новости"
+#   pageRef = "news"
+#   weight = 5
 
-[[main]]
-  name = "Блог"
-  pageRef = "blog"
-  weight = 6
+# [[main]]
+#   name = "Блог"
+#   pageRef = "blog"
+#   weight = 6
 
 [[main]]
   name = "Контакты"
@@ -65,20 +65,20 @@
   pageRef = "science"
   weight = 3
 
-[[footer]]
-  name = "Услуги"
-  pageRef = "services"
-  weight = 4
+# [[footer]]
+#   name = "Услуги"
+#   pageRef = "services"
+#   weight = 4
 
-[[footer]]
-  name = "Новости"
-  pageRef = "news"
-  weight = 5
+# [[footer]]
+#   name = "Новости"
+#   pageRef = "news"
+#   weight = 5
 
-[[footer]]
-  name = "Блог"
-  pageRef = "blog"
-  weight = 6
+# [[footer]]
+#   name = "Блог"
+#   pageRef = "blog"
+#   weight = 6
 
 [[footer]]
   name = "Контакты"
