@@ -20,6 +20,8 @@ summary: кафедральный курс
 5.Bianconi G. Multilayer Networks: Structure and Function, 2018. – 417 p.
 6. Methods for multilevel analysis and visualization of geographical networks. Eds. by C. Rozenblat, G. Melancon. 2013. – 223 p.
 
+
+
 ![Визуализация центральности по промежуточности и сопоставление её с иерархией улично-дорожной сети](img/geonets_1_harmonic.png "Визуализация центральности по промежуточности и сопоставление её с иерархией улично-дорожной сети")
 
 ![Визуализация центральности по гармонике для улично-дорожной сети](img/geonets_2_hierarchy.png "Визуализация центральности по гармонике для улично-дорожной сети")
