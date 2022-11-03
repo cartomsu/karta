@@ -30,10 +30,10 @@
 #   pageRef = "services"
 #   weight = 4
 
-# [[main]]
-#   name = "Новости"
-#   pageRef = "news"
-#   weight = 5
+[[main]]
+  name = "Новости"
+  pageRef = "news"
+  weight = 5
 
 # [[main]]
 #   name = "Блог"
