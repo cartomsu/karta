@@ -22,7 +22,7 @@ collections:
       - label: Название в URL
         name: url-name
         widget: string
-        pattern: ["^[a-zA-Z0-9]*$, Только латинские буквы и арабские цифры"]
+        pattern: ["^[a-zA-Z0-9]*$", "Только латинские буквы и арабские цифры"]
         hint: Например, site.ru/education/{{Название в URL}}. Только латинские буквы и арабские цифры.
       - label: Уровень образования
         name: degree
