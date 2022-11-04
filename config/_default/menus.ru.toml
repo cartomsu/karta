@@ -70,10 +70,10 @@
 #   pageRef = "services"
 #   weight = 4
 
-# [[footer]]
-#   name = "Новости"
-#   pageRef = "news"
-#   weight = 5
+[[footer]]
+  name = "Новости"
+  pageRef = "news"
+  weight = 5
 
 # [[footer]]
 #   name = "Блог"
