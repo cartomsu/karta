@@ -4,9 +4,53 @@ backend:
 media_folder: assets/img
 public_folder: img
 collections:
+  - name: 'education'
+    label: 'Учебные дисциплины'
+    folder: 'content/education'
+    create: true
+    slug: '{{url-name}}'
+    editor:
+      preview: false
+    fields:
+      - label: 'Название'
+        name: 'title'
+        widget: 'string'
+        hint: 'Будет отображаться в виде заголовка'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+      - label: 'Название в URL'
+        name: 'url-name'
+        widget: 'string'
+        pattern: ['^[a-zA-Z0-9]*$', 'Только латинские буквы и арабские цифры']
+        hint: 'Например, site.ru/education/{{Название в URL}}. Только латинские буквы и арабские цифры.'
+      - label: "Уровень образования"
+        name: "degree"
+        widget: "select"
+        options:
+          - { label: "Бакалавриат", value: "bachelor" }
+          - { label: "Магистратура", value: "master" }
+      - label: "Год обучения"
+        name: "year-of-study"
+        widget: "select"
+        options:
+          - "1 курс бакалавриата"
+          - "2 курс бакалавриата"
+          - "3 курс бакалавриата"
+          - "4 курс бакалавриата"
+          - "1 курс магистратуры"
+          - "2 курс магистратуры"
+      - label: 'Аннотация'
+        name: 'summary'
+        widget: 'string'
+        hint: 'Будет отображаться в списке учебных дисциплин'
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+        hint: 'Используйте только Heading 2 (##)! Heading 1 — это заголовок всей страницы.'
   - name: 'stuff'
-    label: 'Сотрудники'
-    folder: 'content/about/stuff'
+    label: 'Учебные дисциплины'
+    folder: 'content/about/staff'
     create: false
     editor:
       preview: false
