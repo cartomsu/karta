@@ -48,8 +48,8 @@ collections:
         name: body
         widget: markdown
         hint: Используйте только Heading 2 (##)! Heading 1 — это заголовок всей страницы.
-  - name: stuff
-    label: Учебные дисциплины
+  - name: staff
+    label: Сотрудники
     folder: content/about/staff
     create: false
     editor:
