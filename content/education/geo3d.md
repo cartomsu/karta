@@ -6,10 +6,10 @@ degree: master
 year-of-study: 1 курс магистратуры
 summary: кафедральный курс
 ---
-{{< lead >}} [Терская Анна Игоревна](https://istina.msu.ru/profile/Arvin/) {{< /lead >}}\
-[Карпачевский Андрей Михайлович](https://istina.msu.ru/profile/IOWq750/) {{< /lead >}}\
-[И﻿люшина Полина Геннадьевна](https://istina.msu.ru/profile/MikhaylukovaPG/) {{< /lead >}}\
-[Э﻿нтин Андрей Львович](https://istina.msu.ru/profile/Entin_AL/) {{< /lead >}}\
+{{< lead >}} [Терская Анна Игоревна](https://istina.msu.ru/profile/Arvin/)\
+[Карпачевский Андрей Михайлович](https://istina.msu.ru/profile/IOWq750/)\
+[И﻿люшина Полина Геннадьевна](https://istina.msu.ru/profile/MikhaylukovaPG/)\
+[Э﻿нтин Андрей Львович](https://istina.msu.ru/profile/Entin_AL/)\
 [Д﻿ругов Михаил Дмитриевич](https://istina.msu.ru/profile/midrug/) {{< /lead >}}
 
 <div style="text-align: justify; text-indent: 25px;"> 
