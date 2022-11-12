@@ -6,7 +6,7 @@ degree: bachelor
 year-of-study: 2 курс бакалавриата
 summary: кафедральный курс
 ---
-{{< lead >}} [Прасолова Анна Ивановна](https://istina.msu.ru/profile/Prasolova_geogr/)  
+{{< lead >}} [Прасолова Анна Ивановна](https://istina.msu.ru/profile/Prasolova_geogr/)\
 [Карпачевский Андрей Михайлович](https://istina.msu.ru/profile/IOWq750/) {{< /lead >}}
 
 <div style="text-align: justify; text-indent: 25px;">
@@ -24,3 +24,5 @@ summary: кафедральный курс
 ![Привязка архивного снимка Keyhole](img/odz2.png "Привязка архивного снимка Keyhole")
 
 ![Снимок Landsat 8 до и после улучшение пространственного разрешения](img/odz3.png "Снимок Landsat 8 до и после улучшение пространственного разрешения")
+
+![Студенты 2 курса](img/odz4.jpg "Студенты 2 курса")
