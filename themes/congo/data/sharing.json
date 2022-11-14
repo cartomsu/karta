@@ -23,5 +23,10 @@
     "icon": "reddit",
     "title": "sharing.reddit",
     "url": "https://reddit.com/submit/?url=%s&resubmit=true&title=%s"
+  },
+  "twitter": {
+    "icon": "twitter",
+    "title": "sharing.twitter",
+    "url": "https://twitter.com/intent/tweet/?url=%s&text=%s"
   }
 }
