@@ -1,6 +1,6 @@
 ---
 title: "Общая информация"
-weight: -1
+weight: 1
 draft: false
 description: "О кафедре картографии и геоинформатики, описание"
 slug: "general"

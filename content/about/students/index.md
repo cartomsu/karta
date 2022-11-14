@@ -1,6 +1,6 @@
 ---
 title: Студенты
-weight: -5
+weight: 5
 showTableOfContents: true
 # date: 2022-11-01
 # showDate: true

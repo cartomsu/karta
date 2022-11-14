@@ -1,6 +1,6 @@
 ---
 title: "Руководство"
-weight: -3
+weight: 3
 showTableOfContents: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Структура"
-weight: -2
+weight: 2
 showTableOfContents: true
 ---
 
