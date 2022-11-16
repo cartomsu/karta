@@ -9,7 +9,7 @@ baseURL = "https://your_domain.com/"
 languageCode = "ru"
 
 enableRobotsTXT = true
-paginate = 10
+paginate = 100
 summaryLength = 0
 
 timeout = "90s"
