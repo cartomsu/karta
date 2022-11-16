@@ -26,24 +26,15 @@
   </section>
   {{ if .Data.Pages }}
     <section>
-      {{ if $.Params.groupByYear | default ($.Site.Params.list.groupByYear | default true) }}
-        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
-          <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
-            {{ .Key }}
-          </h2>
-          <hr class="border-dotted w-36 border-neutral-400" />
-          {{ range .Pages }}
-            {{ partial "article-link.html" . }}
-          {{ end }}
-        {{ end }}
-      {{ else }}
-        {{ range (.Paginate (.Pages.GroupByParam "year-of-study")).PageGroups }}
-          <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
-            {{ .Key }}
-          </h2>
-          <hr class="border-dotted w-36 border-neutral-400" />
-          {{ range .Pages }}
-            {{ partial "article-link.html" . }}
+      {{ range (.Paginate (.Pages.GroupByParam "year-of-study")).PageGroups }}  <!-- группировать по параметру "year-of-study" из frontmatter -->
+        <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+          {{ .Key }}
+        </h2>
+        <hr class="border-dotted w-36 border-neutral-400" />
+        {{ range .Pages }}
+          {{ partial "article-link.html" . }}
+          {{ if ne .Params.summary "кафедральный курс" }}  <!-- если параметр "summary" из frontmatter не равен "кафедральный курс" — добавить badge -->
+            {{ partial "badge.html" .Params.summary }}
           {{ end }}
         {{ end }}
       {{ end }}
