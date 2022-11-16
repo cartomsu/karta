@@ -3,7 +3,7 @@ title: Оформление карт
 date: 2022-11-07T18:17:58.719Z
 url-name: mapdesign
 degree: bachelor
-year-of-study: 2 курс бакалавриата
+year-of-study: Бакалавриат 2 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Ушакова Людмила Алексеевна](https://istina.msu.ru/profile/UshakovaLA/) {{< /lead >}}

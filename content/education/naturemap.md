@@ -3,7 +3,7 @@ title: Картографирование природы
 date: 2022-11-09T09:43:21.447Z
 url-name: naturemap
 degree: bachelor
-year-of-study: 4 курс бакалавриата
+year-of-study: Бакалавриат 4 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Тульская Надежда Игоревна](https://istina.msu.ru/profile/tnadya/) {{< /lead >}}

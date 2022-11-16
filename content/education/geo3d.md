@@ -3,7 +3,7 @@ title: Трёхмерное геомоделирование
 date: 2022-11-07T20:50:41.936Z
 url-name: geo3d
 degree: master
-year-of-study: 1 курс магистратуры
+year-of-study: Магистратура 1 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Терская Анна Игоревна](https://istina.msu.ru/profile/Arvin/)\

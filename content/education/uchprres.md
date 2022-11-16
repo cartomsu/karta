@@ -3,7 +3,7 @@ title: Учёт природных ресурсов
 date: 2022-11-12T08:54:30.204Z
 url-name: uchprres
 degree: bachelor
-year-of-study: 4 курс бакалавриата
+year-of-study: Бакалавриат 4 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Чистов Сергей Владимирович](https://istina.msu.ru/profile/svchistov/) {{< /lead >}}

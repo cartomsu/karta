@@ -3,7 +3,7 @@ title: Компьютерная обработка космических сни
 date: 2022-10-25T19:48:07.951Z
 url-name: newimg
 degree: master
-year-of-study: 2 курс магистратуры
+year-of-study: Магистратура 2 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Балдина Елена Александровна](https://istina.msu.ru/profile/Baldina_EA/)  

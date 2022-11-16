@@ -3,7 +3,7 @@ title: Геоинформационные и аэрокосмические ме
 date: 2022-10-23T17:14:13.271Z
 url-name: landgis
 degree: master
-year-of-study: 1 курс магистратуры
+year-of-study: Магистратура 1 курс
 summary: межкафедральный курс
 ---
 {{< lead >}} [Карпачевский Андрей Михайлович](https://istina.msu.ru/profile/IOWq750/) {{< /lead >}}

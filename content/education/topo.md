@@ -3,7 +3,7 @@ title: Топография
 date: 2022-11-12T08:35:37.141Z
 url-name: topo
 degree: bachelor
-year-of-study: 1 курс бакалавриата
+year-of-study: Бакалавриат 1 курс
 summary: поточный курс
 ---
 {{< lead >}} [Прасолова Анна Ивановна](https://istina.msu.ru/profile/Prasolova_geogr/){{</ lead >}}

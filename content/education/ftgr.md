@@ -3,7 +3,7 @@ title: Фотограмметрия
 date: 2022-10-22T19:54:17.762Z
 url-name: ftgr
 degree: bachelor
-year-of-study: 2 курс бакалавриата
+year-of-study: Бакалавриат 2 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Карпачевский Андрей Михайлович](https://istina.msu.ru/profile/IOWq750/) {{< /lead >}}

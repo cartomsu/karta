@@ -3,7 +3,7 @@ title: Данные радиолокационного зондирования 
 date: 2022-10-25T19:33:49.241Z
 url-name: sarmag
 degree: master
-year-of-study: 2 курс магистратуры
+year-of-study: Магистратура 2 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Илюшина Полина Геннадьевна](https://istina.msu.ru/profile/MikhaylukovaPG/)\

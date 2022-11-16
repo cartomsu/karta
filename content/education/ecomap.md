@@ -3,7 +3,7 @@ title: Экологическое картографирование
 date: 2022-11-12T08:51:14.959Z
 url-name: ecomap
 degree: bachelor
-year-of-study: 4 курс бакалавриата
+year-of-study: Бакалавриат 4 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Чистов Сергей Владимирович](https://istina.msu.ru/profile/svchistov/) {{< /lead >}}

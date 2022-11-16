@@ -3,7 +3,7 @@ title: Геодезические основы карт
 date: 2022-10-23T15:36:04.287Z
 url-name: gok
 degree: bachelor
-year-of-study: 2 курс бакалавриата
+year-of-study: Бакалавриат 2 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Нырцов Максим Валерьевич](https://istina.msu.ru/profile/NyrtsovMV/) {{< /lead >}}

@@ -3,7 +3,7 @@ title: Анализ географических сетей
 date: 2022-10-23T16:50:36.426Z
 url-name: geonets
 degree: bachelor
-year-of-study: 4 курс бакалавриата
+year-of-study: Бакалавриат 4 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Карпачевский Андрей Михайлович](https://istina.msu.ru/profile/IOWq750/) {{< /lead >}}

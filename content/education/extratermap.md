@@ -3,7 +3,7 @@ title: Картографирование внеземных объектов
 date: 2022-10-23T15:52:54.913Z
 url-name: extratermap
 degree: master
-year-of-study: 1 курс магистратуры
+year-of-study: Магистратура 1 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Нырцов Максим Валерьевич](https://istina.msu.ru/profile/NyrtsovMV/) {{< /lead >}}

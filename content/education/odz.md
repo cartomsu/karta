@@ -3,7 +3,7 @@ title: Основы дистанционного зондирования
 date: 2022-10-23T17:21:42.974Z
 url-name: odz
 degree: bachelor
-year-of-study: 2 курс бакалавриата
+year-of-study: Бакалавриат 2 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Прасолова Анна Ивановна](https://istina.msu.ru/profile/Prasolova_geogr/)\

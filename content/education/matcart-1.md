@@ -3,7 +3,7 @@ title: Математическая картография
 date: 2022-10-23T17:08:36.297Z
 url-name: matcart
 degree: bachelor
-year-of-study: 3 курс бакалавриата
+year-of-study: Бакалавриат 3 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Нырцов Максим Валерьевич](https://istina.msu.ru/profile/NyrtsovMV/) {{< /lead >}}

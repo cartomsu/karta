@@ -3,7 +3,7 @@ title: Картографический метод исследования
 date: 2022-11-07T18:09:30.611Z
 url-name: kmi
 degree: bachelor
-year-of-study: 3 курс бакалавриата
+year-of-study: Бакалавриат 3 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Прохорова Елена Андреевна](https://istina.msu.ru/profile/ProkhorovaEA/) {{< /lead >}}

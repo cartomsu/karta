@@ -3,7 +3,7 @@ title: История картографии
 date: 2022-11-09T10:11:27.929Z
 url-name: mappamundi
 degree: bachelor
-year-of-study: 4 курс бакалавриата
+year-of-study: Бакалавриат 4 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Зинчук Людмила Николаевна](https://istina.msu.ru/workers/8819924){{</lead>}}

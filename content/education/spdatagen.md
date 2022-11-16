@@ -3,7 +3,7 @@ title: Генерализация пространственных данных
 date: 2022-10-06T20:08:57.428Z
 url-name: spdatagen
 degree: bachelor
-year-of-study: 4 курс бакалавриата
+year-of-study: Бакалавриат 4 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Самсонов Тимофей Евгеньевич](https://istina.msu.ru/profile/tsamsonov/) {{< /lead >}}
