@@ -4,8 +4,7 @@ date: 2022-10-18T12:42:36.954Z
 url-name: segfc
 degree: master
 year-of-study: Магистратура 1 курс
-summary: межкафедральный курс для кафедры социально-экономической географии
-  зарубежных стран
+summary: курс для кафедры социально-экономической географии зарубежных стран
 ---
 {{< lead >}} [Энтин Андрей Львович](https://istina.msu.ru/profile/Entin_AL/)  
 [Елманова Дарья Сергеевна](https://istina.msu.ru/profile/elmanova/){{< /lead >}}
