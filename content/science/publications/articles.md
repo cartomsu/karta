@@ -1,7 +1,7 @@
 ---
 title: Статьи в журналах
 showTableOfContents: true
-weight: -2
+weight: 2
 ---
 
 

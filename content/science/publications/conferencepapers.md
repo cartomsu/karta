@@ -1,7 +1,7 @@
 ---
 title: Статьи в сборниках
 showTableOfContents: true
-weight: -3
+weight: 3
 ---
 
 
