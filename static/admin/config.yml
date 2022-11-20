@@ -70,3 +70,13 @@ collections:
         name: body
         widget: markdown
         hint: "{{< lead >}} Должность {{< /lead >}} \n [Страница в Истине](url) \n ![Фотокарточка](url Подпись)"
+  - name: practice
+    label: Практики
+    folder: content/education/practice
+    create: false
+    editor:
+      preview: false
+    fields:
+      - label: Body
+        name: body
+        widget: markdown
