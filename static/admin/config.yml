@@ -80,3 +80,13 @@ collections:
       - label: Body
         name: body
         widget: markdown
+  - name: management
+    label: Руководство
+    folder: content/about/management
+    create: false
+    editor:
+      preview: false
+    fields:
+      - label: Body
+        name: body
+        widget: markdown
