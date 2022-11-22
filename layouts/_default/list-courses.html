@@ -31,7 +31,7 @@
           {{ .Key }}
         </h2>
         <hr class="border-dotted w-36 border-neutral-400" />
-        {{ range .Pages }}
+        {{ range .Pages.ByTitle }}
           {{ partial "article-link.html" . }}
           {{ if ne .Params.summary "кафедральный курс" }}  <!-- если параметр "summary" из frontmatter не равен "кафедральный курс" — добавить badge -->
             {{ partial "badge.html" .Params.summary }}
