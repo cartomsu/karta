@@ -6,5 +6,5 @@ degree: bachelor
 year-of-study: Бакалавриат 2 курс
 summary: кафедральный курс
 ---
-[Каргашин Павел Евгеньевич](https://istina.msu.ru/profile/pavelkargashin/)\
+{{< lead >}}[Каргашин Павел Евгеньевич](https://istina.msu.ru/profile/pavelkargashin/){{< /lead >}} \
 [Рабочая программа дисциплины](https://disk.yandex.ru/i/uqebnybXj4O2RQ)
