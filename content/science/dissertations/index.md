@@ -1,6 +1,7 @@
 ---
 title: Диссертации
 showTableOfContents: true
+weight: 2
 ---
 
 
