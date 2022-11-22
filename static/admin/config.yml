@@ -80,6 +80,26 @@ collections:
       - label: Body
         name: body
         widget: markdown
+  - name: plan
+    label: Учебный план
+    folder: content/education/plan
+    create: false
+    editor:
+      preview: false
+    fields:
+      - label: Body
+        name: body
+        widget: markdown
+  - name: populus
+    label: Просвещение
+    folder: content/education/populus
+    create: false
+    editor:
+      preview: false
+    fields:
+      - label: Body
+        name: body
+        widget: markdown
   - name: management
     label: Руководство
     folder: content/about/management
