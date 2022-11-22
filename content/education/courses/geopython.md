@@ -1,9 +1,9 @@
 ---
-title: Автоматизированная обработка пространственных данных средствами языка Python
+title: Автоматизированная обработка пространственных данных
 date: 2022-11-09T09:31:28.543Z
 url-name: geopython
 degree: bachelor
-year-of-study: Бакалавриат 4 курс
+year-of-study: Бакалавриат 3 курс
 summary: кафедральный курс
 ---
 {{< lead >}} [Каргашин Павел Евгеньевич](https://istina.msu.ru/profile/pavelkargashin/) {{< /lead >}}
