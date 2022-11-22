@@ -4,7 +4,7 @@ date: 2022-10-23T17:14:13.271Z
 url-name: landgis
 degree: master
 year-of-study: Магистратура 1 курс
-summary: межкафедральный курс
+summary: курс для кафедры физической географии и ландшафтоведения
 ---
 {{< lead >}} [Карпачевский Андрей Михайлович](https://istina.msu.ru/profile/IOWq750/) {{< /lead >}}
 
