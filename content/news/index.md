@@ -11,7 +11,7 @@ showReadingTime: false
 sharingLinks: false
 ---
 
-Читайте свежие новости у нас в Telegram-канале 👇
+Читайте свежие новости у нас в [Telegram-канале 👇](https://t.me/cartomsu)
 
 <iframe id="preview" src="https://xn--r1a.website/s/cartomsu"></iframe>
 <style>
