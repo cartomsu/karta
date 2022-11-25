@@ -6,7 +6,7 @@ degree: bachelor
 year-of-study: Бакалавриат 4 курс
 summary: кафедральный курс
 ---
-{{< lead >}} [Чистов Сергей Владимирович](https://istina.msu.ru/profile/svchistov/) {{< /lead >}}
+{{< lead >}} [Чистов Сергей Владимирович](../../../about/staff/chistov) {{< /lead >}}
 
 ***Темы курса:***
 

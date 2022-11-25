@@ -6,7 +6,7 @@ degree: master
 year-of-study: Магистратура 1 курс
 summary: курс для кафедры социально-экономической географии зарубежных стран
 ---
-{{< lead >}} [Энтин Андрей Львович](https://istina.msu.ru/profile/Entin_AL/)  
+{{< lead >}} [Энтин Андрей Львович](../../../about/staff/entin)  
 [Елманова Дарья Сергеевна](https://istina.msu.ru/profile/elmanova/){{< /lead >}}
 
 <div style="text-align: justify; text-indent: 25px;">

@@ -6,7 +6,7 @@ degree: master
 year-of-study: Магистратура 1 курс
 summary: кафедральный курс
 ---
-{{< lead >}} [Чистов Сергей Владимирович](https://istina.msu.ru/profile/svchistov/) {{< /lead >}}
+{{< lead >}} [Чистов Сергей Владимирович](../../../about/staff/chistov) {{< /lead >}}
 
 ***Т﻿емы курса:***
 
