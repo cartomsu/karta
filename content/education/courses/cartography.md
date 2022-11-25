@@ -6,5 +6,5 @@ degree: bachelor
 year-of-study: Бакалавриат 2 курс
 summary: поточный курс
 ---
-{{< lead >}} [Алексеенко Наталья Анатольевна](https://istina.msu.ru/profile/valtuz/){{< /lead >}} \
+{{< lead >}} [Алексеенко Наталья Анатольевна](../../../about/staff/alekseenkona){{< /lead >}} \
 [Рабочая программа дисциплины](https://disk.yandex.ru/i/vvlbYei6gYxmSg)

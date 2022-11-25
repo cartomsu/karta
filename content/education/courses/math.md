@@ -6,5 +6,5 @@ degree: bachelor
 year-of-study: Бакалавриат 2 курс
 summary: кафедральный курс
 ---
-{{< lead >}} [Кошель Сергей Михайлович](https://istina.msu.ru/profile/skoshel/){{< /lead >}} \
+{{< lead >}} [Кошель Сергей Михайлович](../../../about/staff/koshel){{< /lead >}} \
 [Рабочая программа дисциплины](https://disk.yandex.ru/i/xqfJVBa-3p_4fQ)

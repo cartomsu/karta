@@ -110,6 +110,16 @@ collections:
       - label: Body
         name: body
         widget: markdown
+  - name: structure
+    label: Структура
+    folder: content/about/structure
+    create: false
+    editor:
+      preview: false
+    fields:
+      - label: Body
+        name: body
+        widget: markdown
   - name: contacts
     label: Контакты
     folder: content/contacts
