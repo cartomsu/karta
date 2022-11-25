@@ -9,15 +9,9 @@ slug: "general"
 showTableOfContents: true
 ---
 
+Кафедра картографии и геоинформатики представляет научную школу географической картографии и геоинформатики, целью которой является разработка теории и методологии этих наук для моделирования и познания геосистем. При кафедре созданы научные лаборатории аэрокосмических методов, автоматизации в картографии, цифровой картографии и фотограмметрии, учебные кабинеты картографии и топографии, компьютерные классы геоинформатики и Гепортала МГУ. Широко развиваются исследования в области геоинформатики и геоинформационного картографирования, разработки электронных атласов, геоинформационного программного обечпечения, внедрения Интернет-картографирования и технологий создания геопорталов в научные исследования и учебный процесс. 
 
-Sit commodo veniam occaecat sit magna id labore do aliqua fugiat commodo sit laboris proident. Magna ad laborum reprehenderit tempor aliqua dolore ipsum dolor ex magna cillum. Reprehenderit cillum magna ipsum voluptate Lorem commodo voluptate. Elit eiusmod elit exercitation ea Lorem ea anim pariatur. Occaecat in consectetur adipisicing tempor tempor.
+С 2009 года кафедрой руководит доктор географических наук, профессор Ирина Константиновна Лурье. В настоящий момент на кафедре работают 38 сотрудников, в том числе 2 профессора и 7 доцентов. Учеными степенями обладают 3 доктора и 19 кандидатов наук. Треть сотрудников — моложе 40 лет.
+Кафедра ведет большую педагогическую и учебно-методическую работу. Мы читаем 7 поточных курсов, в том числе 4 на географическом факультете, и по одному — на факультетах почвоведения, геологическом и биологическом. Также сотрудники кафедры активно задействованы в образовательном процессе на факультете космических исследований. 
 
-Mollit est ullamco fugiat cillum deserunt exercitation. Nostrud quis ipsum sint ex duis Lorem dolore. Sint in dolor enim eiusmod consectetur eiusmod qui anim consectetur aliquip enim velit sint in. Nulla anim ex sit sunt sint ipsum do. Dolor elit nisi qui amet nostrud do cillum incididunt.
-
-Aliquip reprehenderit dolor ea irure qui cupidatat. Velit adipisicing ex magna quis esse non irure et. Laborum aliqua id pariatur excepteur dolore ullamco excepteur nisi. Culpa proident anim qui minim dolore cillum consequat mollit commodo sit quis commodo elit. Adipisicing non ut Lorem mollit aliquip exercitation consectetur.
-
-Occaecat enim nostrud do ullamco anim excepteur reprehenderit do. Id nulla reprehenderit pariatur Lorem incididunt magna officia magna ipsum mollit. Nisi Lorem elit labore nisi nulla excepteur quis tempor. Minim quis eu enim amet aliqua anim. Est incididunt est laboris duis eu dolor et laborum et qui ad minim id anim. Et reprehenderit labore veniam culpa cupidatat cupidatat. Dolor do consectetur mollit mollit cupidatat esse ullamco.
-
-Culpa eu et incididunt esse. Sint irure esse duis anim nisi magna consectetur eiusmod est officia excepteur anim. Ullamco in Lorem cillum occaecat. Excepteur anim consequat cupidatat esse qui non fugiat nostrud sunt reprehenderit et magna culpa ea. Veniam velit duis aute culpa reprehenderit veniam et dolore incididunt.
-
-Ut fugiat do amet sit voluptate commodo. In do pariatur duis ad deserunt commodo excepteur cillum reprehenderit labore laborum nostrud eiusmod et. Duis aute pariatur nostrud enim irure anim consectetur anim consequat ipsum nisi ut. Voluptate mollit consectetur ex deserunt consequat irure. Laborum dolore ea amet anim commodo qui. Duis sunt aliquip commodo voluptate enim magna dolore incididunt ipsum.
+Выпускники кафедры – географы-картографы, специалисты в области общегеографического, тематического, комплексного, системного и аэрокосмического картографирования, геоинформационных технологий, разработки программного обеспечения ГИС.
