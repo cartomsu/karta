@@ -6,4 +6,5 @@ degree: bachelor
 year-of-study: Бакалавриат 1 курс
 summary: курс для кафедры туризма
 ---
-{{< lead >}}[Сучилин Александр Алексеевич](../../../about/staff/suchilin){{< /lead >}}
+{{< lead >}}[Сучилин Александр Алексеевич](../../../about/staff/suchilin)\
+[Тульская Надежда Игоревна](../../../about/staff/tulskaia){{< /lead >}}
