@@ -90,6 +90,7 @@ collections:
       - label: Лаборатория
         name: branch
         widget: select
+        required: false
         options:
           - Лаборатория аэрокосмических методов
           - Лаборатория автоматизации в картографии
