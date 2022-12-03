@@ -1,7 +1,7 @@
 ---
 title: Балис Балио Серапинас
 url-name: serapinas
-branch: null
+branch: Кафедра картографии и геоинформатики
 ---
 {{< lead >}} Профессор {{< /lead >}}
 
