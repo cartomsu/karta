@@ -36,7 +36,7 @@ list:
 
 nav:
   scroll_to_top_title: "Наверх"
-  skip_to_main: "Skip to main content"
+  skip_to_main: "К основному содержанию"
 
 search:
   open_button_title: "Поиск (/)"
@@ -44,12 +44,12 @@ search:
   input_placeholder: "Поиск"
 
 sharing:
-  email: "Send via email"
-  facebook: "Share on Facebook"
-  linkedin: "Share on LinkedIn"
-  pinterest: "Pin on Pinterest"
-  reddit: "Submit to Reddit"
-  twitter: "Tweet on Twitter"
+  email: "Отправить по email"
+  facebook: "Поделиться на Facebook"
+  linkedin: "Поделиться на LinkedIn"
+  pinterest: "Поделиться на Pinterest"
+  reddit: "Поделиться на Reddit"
+  twitter: "Поделиться на Twitter"
 
 shortcode:
   recent_articles: "Недавние"
