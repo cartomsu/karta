@@ -70,6 +70,34 @@ collections:
         name: body
         widget: markdown
         hint: "{{< lead >}} Должность {{< /lead >}} \n [Страница в Истине](url) \n ![Фотокарточка](url Подпись)"
+  - name: retired
+    label: Бывшие сотрудники
+    folder: content/extra/retired
+    create: true
+    slug: "{{url-name}}"
+    editor:
+      preview: false
+    fields:
+      - label: Имя сотрудника
+        name: title
+        widget: string
+        hint: Имя Отчество Фамилия
+      - label: Название в URL
+        name: url-name
+        widget: string
+        pattern: ["^[a-zA-Z0-9]*$", "Только латинские буквы и арабские цифры"]
+        hint: Имя страницы, например site.ru/education/{{Название в URL}}. Только латинские буквы и арабские цифры.
+      - label: Лаборатория
+        name: branch
+        widget: select
+        options:
+          - Лаборатория аэрокосмических методов
+          - Лаборатория автоматизации в картографии
+          - Лаборатория цифровой картографии и фотограмметрии
+      - label: Body
+        name: body
+        widget: markdown
+        hint: "![Фотокарточка](url Подпись) \n {{< lead >}} Должность {{< /lead >}} \n [Страница в Истине](url)"
   - name: practice
     label: Практики
     folder: content/education/practice
