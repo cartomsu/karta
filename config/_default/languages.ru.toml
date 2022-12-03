@@ -6,10 +6,12 @@ weight = 1
 rtl = false
 
 title = "Карта"
-header.logo = "img/logo.png"
-header.showTitle = false
 description = "Веб-сайт кафедры картографии и геоинформатики географического факультета МГУ имени М. В. Ломоносова"
 copyright = "&copy; кафедра картографии и геоинформатики МГУ имени М. В. Ломоносова"
+
+[header]
+logo = "img/logo.png"
+showTitle = false
 
 dateFormat = "2 January 2006"
 
