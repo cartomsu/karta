@@ -1,5 +1,5 @@
 ---
-title: "Наука 🧑‍🔬"
+title: "Наука 👩‍💻 👨‍🎨"
 description: "Научная деятельность кафедры картографии и геоинформатики"
 showAuthor: false
 showBreadcrumbs: false

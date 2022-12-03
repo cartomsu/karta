@@ -1,5 +1,5 @@
 ---
-title: Диссертации
+title: Диссертации 📔
 showTableOfContents: true
 ---
 
