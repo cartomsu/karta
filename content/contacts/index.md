@@ -24,6 +24,10 @@ sharingLinks: false
 
 [+7 (495) 939-37-93](tel:+74959393793) (заведующий кафедрой, секретариат)
 
+## Электронная почта
+
+[carto@geogr.msu.ru](mailto:carto@geogr.msu.ru)
+
 ## Социальные сети
 
 ### Telegram
