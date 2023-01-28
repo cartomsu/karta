@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: cartomsu/karta
   branch: master # Branch to update (optional; defaults to master)
 media_folder: assets/img
 public_folder: img
