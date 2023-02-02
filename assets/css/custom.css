@@ -1,0 +1,7 @@
+.prose blockquote p::before {
+    content: none
+}
+
+.prose blockquote p::after {
+    content: none
+}
