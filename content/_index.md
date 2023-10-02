@@ -10,11 +10,7 @@ description: "This is a demo of the Congo theme for Hugo."
     position: relative;
     display: inline-block;
 ">
-      <img class="my-0 rounded-md" srcset="
-          /img/cafedra_hue3bb63faa46d965dd1519379fe66f67e_3097714_330x0_resize_box_3.png 330w,
-          /img/cafedra_hue3bb63faa46d965dd1519379fe66f67e_3097714_660x0_resize_box_3.png 660w,
-          /img/cafedra_hue3bb63faa46d965dd1519379fe66f67e_3097714_1024x0_resize_box_3.png 1024w,
-          /img/cafedra_hue3bb63faa46d965dd1519379fe66f67e_3097714_1320x0_resize_box_3.png 2x" src="/img/cafedra_hue3bb63faa46d965dd1519379fe66f67e_3097714_660x0_resize_box_3.png" alt="Мы">
+      <img class="my-0 rounded-md"  src="https://sun9-53.userapi.com/impg/z7m99AbLiKcip37g8AaJB7JVhvU_M8-IXXNUvQ/f5A_9KwChWs.jpg?size=1320x1003&quality=96&sign=7e5951f24c8349a05fc191d455164529&type=album" alt="Мы">
         <a href="../about/staff/nyrtsov/" title="Nyrtsov" style="position: absolute; left: 0%; top: 0%; width: 12.5%; height: 20%; opacity: 0.5"></a>
  <a href="../about/staff/alekseenkona/" title="Alekseenko" style="position: absolute; left: 12.5%; top: 0%; width: 12.5%; height: 20%; opacity: 0.5"></a>
  <a href="../about/staff/kargashin/" title="Kargashin" style="position: absolute; left: 25%; top: 0%; width: 12.5%; height: 20%; opacity: 0.5"></a>
