@@ -48,6 +48,10 @@ const educationLinks = [
 
 const scienceLinks = [
   {
+    text: 'Публикации',
+    href: getPermalink('/papers'),
+  },
+  {
     text: 'Конференции',
     href: getPermalink('/conferences'),
   },

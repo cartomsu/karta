@@ -1,0 +1,45 @@
+---
+import MarkdownLayout from '~/layouts/MarkdownLayout.astro'
+
+import Papa from 'papaparse'
+
+const r = await fetch(
+  'https://docs.google.com/spreadsheets/d/1QVy6x7qL7AhqAqD8vT0JjWKM9lRk5VcUrgxbcHV6UW8/export?format=csv'
+)
+const t = await r.text()
+const csv = Papa.parse(t, { header: true })
+const papers = csv.data
+---
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>
+
+<MarkdownLayout frontmatter={{ title: 'Публикации' }}>
+  <ol>
+    {
+      papers.map((p) => (
+        <li>
+          {p.FullCitation}{' '}
+          {p.DOI && (
+            <a href={p.DOI} target="_blank">
+              [ DOI ]
+            </a>
+          )}{' '}
+          {p.Link && (
+            <a href={p.Link} target="_blank">
+              [ источник ]
+            </a>
+          )}{' '}
+          {!p.Link && p.LinkAlt && (
+            <a href={p.LinkAlt} target="_blank">
+              [ источник ]
+            </a>
+          )}{' '}
+        </li>
+      ))
+    }
+  </ol>
+</MarkdownLayout>
