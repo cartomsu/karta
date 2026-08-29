@@ -55,6 +55,10 @@ const scienceLinks = [
     text: 'Конференции',
     href: getPermalink('/conferences'),
   },
+  {
+    text: 'Анализ публикаций',
+    href: getPermalink('/publications'),
+  },
 ]
 
 export const headerData = {

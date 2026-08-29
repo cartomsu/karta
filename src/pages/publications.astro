@@ -1,0 +1,1123 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+
+const metadata = {
+  title: 'Анализ публикаций с 2010 года',
+  description: 'Интерактивный анализ публикаций кафедры картографии и геоинформатики: динамика, темы, поиск и фильтры.',
+}
+---
+
+<Layout metadata={metadata}>
+  <div class="pub-dashboard" data-publications-dashboard>
+    <section class="pub-hero">
+      <div class="pub-shell">
+        <p class="pub-eyebrow"><span></span> Наука · публикационная активность</p>
+        <div class="pub-hero-grid">
+          <div>
+            <h1>Публикационная<br />карта кафедры</h1>
+            <p class="pub-lead">
+              Интерактивный обзор публикаций кафедры с 2010 года: динамика, тематические направления и поиск по
+              названиям.
+            </p>
+          </div>
+          <aside>
+            <strong>О методике</strong>
+            <p>Темы определены по словам в названиях. 2026 год неполный и по умолчанию исключён из анализа.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div class="pub-shell pub-workspace">
+      <aside class="pub-filters" aria-label="Фильтры публикаций">
+        <div class="pub-heading-row">
+          <div><span class="pub-index">01</span><h2>Срез данных</h2></div>
+          <button type="button" class="pub-reset" data-reset>Сбросить</button>
+        </div>
+
+        <label class="pub-field">
+          <span>Поиск</span>
+          <input type="search" data-query placeholder="Название, автор или источник" />
+        </label>
+        <div class="pub-year-fields">
+          <label class="pub-field"
+            ><span>С года</span><input type="number" min="2010" max="2026" value="2010" data-start /></label
+          >
+          <label class="pub-field"
+            ><span>По год</span><input type="number" min="2010" max="2026" value="2025" data-end /></label
+          >
+        </div>
+        <label class="pub-field"><span>Тема</span><select data-theme><option>Все</option></select></label>
+        <label class="pub-field"><span>Тип публикации</span><select data-type><option>Все</option></select></label>
+        <label class="pub-field"><span>Язык названия</span><select data-language><option>Все</option></select></label>
+        <div class="pub-selection"><strong data-selection-count>—</strong><span>записей в текущем срезе</span></div>
+      </aside>
+
+      <div class="pub-content">
+        <div class="pub-heading-row pub-overview-heading">
+          <div><span class="pub-index">02</span><h2>Обзор периода</h2></div>
+          <button type="button" class="pub-download" data-download>Экспорт CSV ↓</button>
+        </div>
+
+        <div class="pub-kpis" aria-label="Ключевые показатели">
+          <article class="pub-kpi pub-kpi-primary">
+            <span>Публикаций</span><strong data-kpi-total>—</strong><small data-kpi-period>—</small>
+          </article>
+          <article class="pub-kpi">
+            <span>Уникальных названий</span><strong data-kpi-unique>—</strong><small data-kpi-duplicates>—</small>
+          </article>
+          <article class="pub-kpi">
+            <span>Пиковый год</span><strong data-kpi-peak>—</strong><small data-kpi-peak-count>—</small>
+          </article>
+          <article class="pub-kpi">
+            <span>Ведущая тема</span><strong class="pub-kpi-text" data-kpi-theme>—</strong><small data-kpi-theme-count
+              >—</small
+            >
+          </article>
+        </div>
+
+        <div class="pub-chart-grid">
+          <article class="pub-panel pub-trend-panel">
+            <header><div><span>Динамика</span><h3>Публикации по годам</h3></div><small>Количество</small></header>
+            <div class="pub-canvas-wrap"><canvas data-trend role="img"></canvas></div>
+          </article>
+          <article class="pub-panel">
+            <header><div><span>Структура</span><h3>Тематики публикаций</h3></div><small>Топ-8</small></header>
+            <div class="pub-bars" data-theme-bars></div>
+          </article>
+        </div>
+
+        <div class="pub-insight-grid">
+          <article class="pub-panel pub-compact">
+            <header><div><span>Лексика</span><h3>Частые слова</h3></div></header>
+            <div class="pub-terms" data-terms></div>
+          </article>
+          <article class="pub-panel pub-compact">
+            <header><div><span>Форматы</span><h3>Типы публикаций</h3></div></header>
+            <div class="pub-types" data-types></div>
+          </article>
+        </div>
+
+        <section class="pub-publications">
+          <div class="pub-heading-row">
+            <div><span class="pub-index">03</span><h2>Публикации</h2></div>
+            <span class="pub-result-count" data-result-count aria-live="polite"></span>
+          </div>
+          <div class="pub-table-wrap">
+            <table>
+              <thead><tr><th>Год</th><th>Публикация</th><th>Тема</th><th>Тип</th></tr></thead>
+              <tbody data-rows></tbody>
+            </table>
+          </div>
+          <nav class="pub-pagination" aria-label="Навигация по публикациям">
+            <button type="button" data-prev>← Назад</button><span data-page-label></span><button type="button" data-next
+              >Далее →</button
+            >
+          </nav>
+        </section>
+
+        <p class="pub-source">
+          Источник: выгрузка публикаций кафедры. Классификация выполнена по словам в названиях; результаты доступны для
+          аналитического обзора и требуют экспертной проверки для библиографического использования.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline data-astro-rerun>
+    ;(() => {
+      const root = document.querySelector('[data-publications-dashboard]')
+      if (!root || root.dataset.initialized === 'true') return
+      root.dataset.initialized = 'true'
+
+      const ALL = 'Все'
+      const PAGE_SIZE = 25
+      const nf = new Intl.NumberFormat('ru-RU')
+      const state = { start: 2010, end: 2025, theme: ALL, type: ALL, language: ALL, query: '', page: 1 }
+      const stopWords = new Set([
+        'анализ',
+        'данных',
+        'данные',
+        'данным',
+        'исследование',
+        'исследования',
+        'оценка',
+        'оценки',
+        'состояния',
+        'метод',
+        'методы',
+        'основе',
+        'примере',
+        'использование',
+        'применение',
+        'изучение',
+        'the',
+        'and',
+        'for',
+        'with',
+        'from',
+        'study',
+        'analysis',
+        'based',
+        'data',
+        'using',
+        'case',
+        'russia',
+      ])
+
+      const el = (selector) => root.querySelector(selector)
+      const escapeHtml = (value) =>
+        String(value ?? '').replace(
+          /[&<>"']/g,
+          (character) =>
+            ({
+              '&': '&amp;',
+              '<': '&lt;',
+              '>': '&gt;',
+              '"': '&quot;',
+              "'": '&#39;',
+            })[character]
+        )
+      const unique = (values) => Array.from(new Set(values)).sort((a, b) => a.localeCompare(b, 'ru'))
+
+      fetch('/data/publications.json')
+        .then((response) => {
+          if (!response.ok) throw new Error('Не удалось загрузить данные')
+          return response.json()
+        })
+        .then(({ records }) => initialize(records))
+        .catch(() => {
+          el('[data-selection-count]').textContent = 'Ошибка'
+          el('[data-rows]').innerHTML =
+            '<tr><td colspan="4" class="pub-empty">Не удалось загрузить данные публикаций.</td></tr>'
+        })
+
+      function initialize(records) {
+        fillSelect('[data-theme]', unique(records.map((record) => record.theme)))
+        fillSelect('[data-type]', unique(records.map((record) => record.type)))
+        fillSelect('[data-language]', unique(records.map((record) => record.language)))
+
+        const controls = [
+          '[data-query]',
+          '[data-start]',
+          '[data-end]',
+          '[data-theme]',
+          '[data-type]',
+          '[data-language]',
+        ]
+        controls.forEach((selector) => {
+          const control = el(selector)
+          control.addEventListener(selector === '[data-query]' ? 'input' : 'change', () => {
+            state.query = el('[data-query]').value
+            state.start = Math.max(2010, Number(el('[data-start]').value))
+            state.end = Math.min(2026, Number(el('[data-end]').value))
+            if (state.start > state.end) state.end = state.start
+            el('[data-end]').value = String(state.end)
+            state.theme = el('[data-theme]').value
+            state.type = el('[data-type]').value
+            state.language = el('[data-language]').value
+            state.page = 1
+            render()
+          })
+        })
+
+        el('[data-reset]').addEventListener('click', () => {
+          Object.assign(state, { start: 2010, end: 2025, theme: ALL, type: ALL, language: ALL, query: '', page: 1 })
+          el('[data-start]').value = '2010'
+          el('[data-end]').value = '2025'
+          el('[data-query]').value = ''
+          el('[data-theme]').value = ALL
+          el('[data-type]').value = ALL
+          el('[data-language]').value = ALL
+          render()
+        })
+        el('[data-prev]').addEventListener('click', () => {
+          state.page -= 1
+          render()
+          scrollToTable()
+        })
+        el('[data-next]').addEventListener('click', () => {
+          state.page += 1
+          render()
+          scrollToTable()
+        })
+        el('[data-download]').addEventListener('click', downloadCsv)
+        window.addEventListener('resize', () => drawTrend(yearSeries(filteredRecords())))
+        render()
+
+        function fillSelect(selector, values) {
+          const select = el(selector)
+          values.forEach((value) => select.add(new Option(value, value)))
+        }
+
+        function filteredRecords() {
+          const needle = state.query.trim().toLocaleLowerCase('ru-RU')
+          return records.filter((record) => {
+            if (record.year < state.start || record.year > state.end) return false
+            if (state.theme !== ALL && record.theme !== state.theme) return false
+            if (state.type !== ALL && record.type !== state.type) return false
+            if (state.language !== ALL && record.language !== state.language) return false
+            return (
+              !needle ||
+              `${record.title} ${record.authors} ${record.source}`.toLocaleLowerCase('ru-RU').includes(needle)
+            )
+          })
+        }
+
+        function ranking(list, key) {
+          const counts = new Map()
+          list.forEach((record) => counts.set(record[key], (counts.get(record[key]) ?? 0) + 1))
+          return Array.from(counts, ([label, value]) => ({ label, value })).sort((a, b) => b.value - a.value)
+        }
+
+        function yearSeries(list) {
+          const counts = new Map()
+          list.forEach((record) => counts.set(record.year, (counts.get(record.year) ?? 0) + 1))
+          return Array.from({ length: state.end - state.start + 1 }, (_, index) => {
+            const year = state.start + index
+            return { label: String(year), value: counts.get(year) ?? 0 }
+          })
+        }
+
+        function frequentTerms(list) {
+          const counts = new Map()
+          list.forEach((record) => {
+            const words = new Set(
+              record.title
+                .toLocaleLowerCase('ru-RU')
+                .replaceAll('ё', 'е')
+                .match(/[a-zа-я]{4,}/g) ?? []
+            )
+            words.forEach((word) => {
+              if (!stopWords.has(word)) counts.set(word, (counts.get(word) ?? 0) + 1)
+            })
+          })
+          return Array.from(counts, ([word, count]) => ({ word, count }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 12)
+        }
+
+        function render() {
+          const list = filteredRecords()
+          const years = yearSeries(list)
+          const themes = ranking(list, 'theme')
+          const types = ranking(list, 'type')
+          const peak = years.reduce((best, point) => (!best || point.value > best.value ? point : best), null)
+          const uniqueTitles = new Set(list.map((record) => record.title)).size
+
+          el('[data-selection-count]').textContent = nf.format(list.length)
+          el('[data-kpi-total]').textContent = nf.format(list.length)
+          el('[data-kpi-period]').textContent = `${state.start}–${state.end}`
+          el('[data-kpi-unique]').textContent = nf.format(uniqueTitles)
+          el('[data-kpi-duplicates]').textContent = `${nf.format(list.length - uniqueTitles)} повторов`
+          el('[data-kpi-peak]').textContent = peak?.label ?? '—'
+          el('[data-kpi-peak-count]').textContent = peak ? `${nf.format(peak.value)} публикаций` : 'Нет данных'
+          el('[data-kpi-theme]').textContent = themes[0]?.label ?? '—'
+          el('[data-kpi-theme-count]').textContent = themes[0]
+            ? `${nf.format(themes[0].value)} публикаций`
+            : 'Нет данных'
+
+          drawTrend(years)
+          renderThemeBars(themes)
+          renderTerms(frequentTerms(list))
+          renderTypes(types)
+          renderTable(list)
+        }
+
+        function renderThemeBars(items) {
+          const max = items[0]?.value ?? 1
+          const container = el('[data-theme-bars]')
+          container.innerHTML =
+            items
+              .slice(0, 8)
+              .map(
+                (item, index) => `
+            <button type="button" class="pub-bar-row" data-value="${escapeHtml(item.label)}">
+              <span class="pub-bar-rank">${String(index + 1).padStart(2, '0')}</span>
+              <span class="pub-bar-content"><span class="pub-bar-label">${escapeHtml(item.label)}</span><span class="pub-bar-track"><i style="width:${(item.value / max) * 100}%"></i></span></span>
+              <strong>${nf.format(item.value)}</strong>
+            </button>`
+              )
+              .join('') || '<p class="pub-empty">Нет данных для выбранного среза.</p>'
+          container
+            .querySelectorAll('button')
+            .forEach((button) => button.addEventListener('click', () => setFilter('theme', button.dataset.value)))
+        }
+
+        function renderTerms(items) {
+          el('[data-terms]').innerHTML = items
+            .map((item) => `<span>${escapeHtml(item.word)}<sup>${item.count}</sup></span>`)
+            .join('')
+        }
+
+        function renderTypes(items) {
+          const container = el('[data-types]')
+          container.innerHTML = items
+            .slice(0, 5)
+            .map(
+              (item) =>
+                `<button type="button" data-value="${escapeHtml(item.label)}"><span>${escapeHtml(item.label)}</span><strong>${nf.format(item.value)}</strong></button>`
+            )
+            .join('')
+          container
+            .querySelectorAll('button')
+            .forEach((button) => button.addEventListener('click', () => setFilter('type', button.dataset.value)))
+        }
+
+        function renderTable(list) {
+          const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE))
+          state.page = Math.min(state.page, pages)
+          const visible = list
+            .slice()
+            .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title, 'ru'))
+            .slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE)
+          el('[data-result-count]').textContent = `${nf.format(list.length)} результатов`
+          const body = el('[data-rows]')
+          body.innerHTML =
+            visible
+              .map(
+                (record) => `<tr>
+            <td class="pub-year">${record.year}</td>
+            <td><strong>${escapeHtml(record.title)}</strong><span>${escapeHtml(record.authors)}</span><small>${escapeHtml(record.source)}</small></td>
+            <td><button type="button" class="pub-theme-tag" data-value="${escapeHtml(record.theme)}">${escapeHtml(record.theme)}</button>${record.duplicate ? '<em>повтор</em>' : ''}</td>
+            <td>${escapeHtml(record.type)}</td>
+          </tr>`
+              )
+              .join('') || '<tr><td colspan="4" class="pub-empty">По заданным условиям публикаций не найдено.</td></tr>'
+          body
+            .querySelectorAll('.pub-theme-tag')
+            .forEach((button) => button.addEventListener('click', () => setFilter('theme', button.dataset.value)))
+          el('[data-page-label]').textContent = `Страница ${state.page} из ${pages}`
+          el('[data-prev]').disabled = state.page === 1
+          el('[data-next]').disabled = state.page === pages
+        }
+
+        function setFilter(key, value) {
+          state[key] = value
+          state.page = 1
+          el(`[data-${key}]`).value = value
+          render()
+        }
+
+        function drawTrend(points) {
+          const canvas = el('[data-trend]')
+          const width = Math.max(320, canvas.parentElement.clientWidth - 24)
+          const height = width < 520 ? 240 : 310
+          const ratio = window.devicePixelRatio || 1
+          canvas.width = width * ratio
+          canvas.height = height * ratio
+          canvas.style.width = `${width}px`
+          canvas.style.height = `${height}px`
+          const context = canvas.getContext('2d')
+          context.scale(ratio, ratio)
+          context.clearRect(0, 0, width, height)
+          const padding = { top: 22, right: 18, bottom: 38, left: 42 }
+          const chartWidth = width - padding.left - padding.right
+          const chartHeight = height - padding.top - padding.bottom
+          const maximum = Math.max(1, ...points.map((point) => point.value))
+          const ceiling = Math.ceil(maximum / 50) * 50 || 50
+          const dark = document.documentElement.classList.contains('dark')
+          context.font = '12px Inter, Arial'
+          context.strokeStyle = dark ? '#334155' : '#dce6ea'
+          context.fillStyle = dark ? '#94a3b8' : '#718096'
+          for (let index = 0; index <= 5; index += 1) {
+            const y = padding.top + (chartHeight * index) / 5
+            context.beginPath()
+            context.moveTo(padding.left, y)
+            context.lineTo(width - padding.right, y)
+            context.stroke()
+            context.fillText(String(Math.round(ceiling * (1 - index / 5))), 4, y + 4)
+          }
+          const step = points.length > 1 ? chartWidth / (points.length - 1) : chartWidth
+          const coordinates = points.map((point, index) => ({
+            x: padding.left + index * step,
+            y: padding.top + chartHeight - (point.value / ceiling) * chartHeight,
+          }))
+          const gradient = context.createLinearGradient(0, padding.top, 0, padding.top + chartHeight)
+          gradient.addColorStop(0, 'rgba(37, 99, 235, .25)')
+          gradient.addColorStop(1, 'rgba(37, 99, 235, 0)')
+          context.beginPath()
+          coordinates.forEach((point, index) =>
+            index ? context.lineTo(point.x, point.y) : context.moveTo(point.x, point.y)
+          )
+          context.lineTo(coordinates.at(-1).x, padding.top + chartHeight)
+          context.lineTo(coordinates[0].x, padding.top + chartHeight)
+          context.closePath()
+          context.fillStyle = gradient
+          context.fill()
+          context.beginPath()
+          coordinates.forEach((point, index) =>
+            index ? context.lineTo(point.x, point.y) : context.moveTo(point.x, point.y)
+          )
+          context.strokeStyle = '#2563eb'
+          context.lineWidth = 3
+          context.lineJoin = 'round'
+          context.stroke()
+          const every = Math.max(1, Math.ceil(points.length / (width < 520 ? 6 : 10)))
+          context.textAlign = 'center'
+          context.fillStyle = dark ? '#94a3b8' : '#718096'
+          points.forEach((point, index) => {
+            if (index % every === 0 || index === points.length - 1)
+              context.fillText(point.label, coordinates[index].x, height - 13)
+          })
+          context.textAlign = 'left'
+          canvas.setAttribute('aria-label', `Динамика публикаций с ${state.start} по ${state.end} год`)
+        }
+
+        function downloadCsv() {
+          const header = ['Год', 'Тип', 'Авторы', 'Название', 'Источник', 'Тема', 'Язык']
+          const quote = (value) => `"${String(value ?? '').replaceAll('"', '""')}"`
+          const rows = filteredRecords().map((record) => [
+            record.year,
+            record.type,
+            record.authors,
+            record.title,
+            record.source,
+            record.theme,
+            record.language,
+          ])
+          const csv = `\uFEFF${[header, ...rows].map((row) => row.map(quote).join(';')).join('\r\n')}`
+          const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }))
+          const link = document.createElement('a')
+          link.href = url
+          link.download = `publikacii_${state.start}-${state.end}.csv`
+          link.click()
+          URL.revokeObjectURL(url)
+        }
+
+        function scrollToTable() {
+          el('.pub-publications').scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+    })()
+  </script>
+</Layout>
+
+<style is:global>
+  .pub-dashboard {
+    --pub-bg: #f5f7fa;
+    --pub-card: #fff;
+    --pub-ink: #172033;
+    --pub-muted: #667085;
+    --pub-line: #dfe5ed;
+    --pub-blue: #2563eb;
+    --pub-blue-dark: #163c91;
+    --pub-blue-soft: #dbeafe;
+    color: var(--pub-ink);
+    background: var(--pub-bg);
+    min-height: 100vh;
+  }
+  .dark .pub-dashboard {
+    --pub-bg: #0b1220;
+    --pub-card: #111b2e;
+    --pub-ink: #e5edf8;
+    --pub-muted: #94a3b8;
+    --pub-line: #26344a;
+    --pub-blue-soft: #172554;
+  }
+  .pub-dashboard * {
+    box-sizing: border-box;
+  }
+  .pub-shell {
+    width: min(1480px, calc(100% - 3rem));
+    margin-inline: auto;
+  }
+  .pub-hero {
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background:
+      radial-gradient(circle at 86% 28%, rgba(96, 165, 250, 0.2) 0 1px, transparent 2px) 0 0/22px 22px,
+      linear-gradient(120deg, #0b2142, #163c70 68%, #17537e);
+    border-bottom: 5px solid #3b82f6;
+  }
+  .pub-hero::after {
+    content: '';
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    right: -140px;
+    top: -300px;
+    box-shadow:
+      0 0 0 70px rgba(255, 255, 255, 0.025),
+      0 0 0 140px rgba(255, 255, 255, 0.018);
+  }
+  .pub-hero .pub-shell {
+    position: relative;
+    z-index: 1;
+    padding-block: 56px 64px;
+  }
+  .pub-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    color: #bfdbfe;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  .pub-eyebrow span {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #60a5fa;
+    box-shadow: 0 0 0 5px rgba(96, 165, 250, 0.15);
+  }
+  .pub-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 5rem;
+    align-items: end;
+    margin-top: 2.1rem;
+  }
+  .pub-hero h1 {
+    margin: 0;
+    color: white;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+  }
+  .pub-lead {
+    max-width: 740px;
+    margin: 1.5rem 0 0;
+    color: #cbdcf0;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .pub-hero aside {
+    border-top: 1px solid rgba(255, 255, 255, 0.32);
+    padding-top: 1rem;
+  }
+  .pub-hero aside strong {
+    color: #93c5fd;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .pub-hero aside p {
+    margin: 0.55rem 0 0;
+    color: #dce8f6;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+  .pub-workspace {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: start;
+  }
+  .pub-filters {
+    position: sticky;
+    top: 74px;
+    min-height: calc(100vh - 74px);
+    padding: 2.25rem 1.75rem 3rem 0;
+    border-right: 1px solid var(--pub-line);
+  }
+  .pub-content {
+    min-width: 0;
+    padding: 2.25rem 0 5rem 2.4rem;
+  }
+  .pub-heading-row,
+  .pub-panel > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.1rem;
+  }
+  .pub-heading-row > div {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .pub-index {
+    color: var(--pub-blue);
+    font:
+      700 0.68rem ui-monospace,
+      SFMono-Regular,
+      Consolas,
+      monospace;
+    letter-spacing: 0.08em;
+  }
+  .pub-dashboard h2 {
+    margin: 0;
+    color: var(--pub-ink);
+    font-size: 1.45rem;
+    letter-spacing: -0.025em;
+  }
+  .pub-reset {
+    border: 0;
+    background: transparent;
+    color: var(--pub-blue);
+    padding: 0.3rem 0;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 750;
+  }
+  .pub-field {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+  .pub-field > span {
+    color: var(--pub-muted);
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pub-field input,
+  .pub-field select {
+    width: 100%;
+    min-height: 44px;
+    border: 1px solid var(--pub-line);
+    border-radius: 0.35rem;
+    background: var(--pub-card);
+    color: var(--pub-ink);
+    padding: 0.65rem 0.75rem;
+    outline: none;
+  }
+  .pub-field input:focus,
+  .pub-field select:focus {
+    border-color: var(--pub-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+  }
+  .pub-year-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .pub-selection {
+    margin-top: 1.7rem;
+    padding: 1.1rem;
+    background: #163c70;
+    color: white;
+    border-radius: 0.4rem;
+  }
+  .pub-selection strong {
+    display: block;
+    font-size: 1.75rem;
+    letter-spacing: -0.04em;
+  }
+  .pub-selection span {
+    color: #cbdcf0;
+    font-size: 0.72rem;
+  }
+  .pub-download {
+    border: 1px solid var(--pub-blue-dark);
+    background: transparent;
+    color: var(--pub-ink);
+    border-radius: 0.35rem;
+    padding: 0.62rem 0.85rem;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 750;
+  }
+  .pub-download:hover {
+    color: white;
+    background: var(--pub-blue-dark);
+  }
+  .pub-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    margin: 1.4rem 0 1.5rem;
+    background: var(--pub-line);
+    border: 1px solid var(--pub-line);
+  }
+  .pub-kpi {
+    position: relative;
+    min-height: 150px;
+    padding: 1.35rem;
+    background: var(--pub-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .pub-kpi::after {
+    content: '';
+    position: absolute;
+    right: -25px;
+    bottom: -30px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--pub-line);
+    border-radius: 50%;
+  }
+  .pub-kpi-primary {
+    background: var(--pub-blue);
+    color: white;
+  }
+  .pub-kpi-primary::after {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 18px rgba(255, 255, 255, 0.04);
+  }
+  .pub-kpi > span {
+    color: var(--pub-muted);
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pub-kpi-primary > span,
+  .pub-kpi-primary small {
+    color: #dbeafe;
+  }
+  .pub-kpi strong {
+    font-size: clamp(2rem, 3vw, 3rem);
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .pub-kpi .pub-kpi-text {
+    max-width: 230px;
+    font-size: 1.15rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .pub-kpi small {
+    color: var(--pub-muted);
+    font-size: 0.72rem;
+  }
+  .pub-chart-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 1.1rem;
+  }
+  .pub-insight-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.1rem;
+    margin-top: 1.1rem;
+  }
+  .pub-panel {
+    min-width: 0;
+    background: var(--pub-card);
+    border: 1px solid var(--pub-line);
+  }
+  .pub-panel > header {
+    padding: 1.2rem 1.35rem 0.8rem;
+    border-bottom: 1px solid var(--pub-line);
+  }
+  .pub-panel > header span {
+    color: var(--pub-blue);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .pub-panel h3 {
+    margin: 0.25rem 0 0;
+    color: var(--pub-ink);
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+  }
+  .pub-panel > header small {
+    color: var(--pub-muted);
+    font:
+      0.68rem ui-monospace,
+      SFMono-Regular,
+      Consolas,
+      monospace;
+  }
+  .pub-canvas-wrap {
+    width: 100%;
+    padding: 0.4rem 0.75rem 0.3rem;
+  }
+  .pub-canvas-wrap canvas {
+    display: block;
+    max-width: 100%;
+  }
+  .pub-bars {
+    padding: 0.75rem 1.2rem 1.2rem;
+  }
+  .pub-bar-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.58rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--pub-line);
+    background: transparent;
+    color: var(--pub-ink);
+    cursor: pointer;
+    text-align: left;
+  }
+  .pub-bar-rank {
+    color: var(--pub-muted);
+    font:
+      0.62rem ui-monospace,
+      SFMono-Regular,
+      Consolas,
+      monospace;
+  }
+  .pub-bar-content {
+    display: grid;
+    gap: 0.38rem;
+    min-width: 0;
+  }
+  .pub-bar-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.75rem;
+  }
+  .pub-bar-row:hover .pub-bar-label {
+    color: var(--pub-blue);
+  }
+  .pub-bar-track {
+    height: 5px;
+    background: var(--pub-blue-soft);
+    overflow: hidden;
+  }
+  .pub-bar-track i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--pub-blue), #60a5fa);
+    min-width: 3px;
+  }
+  .pub-bar-row strong {
+    text-align: right;
+    font:
+      0.68rem ui-monospace,
+      SFMono-Regular,
+      Consolas,
+      monospace;
+  }
+  .pub-compact {
+    min-height: 210px;
+  }
+  .pub-terms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.2rem 1.35rem 1.5rem;
+  }
+  .pub-terms span {
+    background: var(--pub-blue-soft);
+    color: var(--pub-blue-dark);
+    border: 1px solid color-mix(in srgb, var(--pub-blue) 18%, transparent);
+    border-radius: 99px;
+    padding: 0.5rem 0.68rem;
+    font-size: 0.78rem;
+  }
+  .dark .pub-terms span {
+    color: #bfdbfe;
+  }
+  .pub-terms sup {
+    color: var(--pub-muted);
+    margin-left: 0.35rem;
+    font:
+      0.56rem ui-monospace,
+      SFMono-Regular,
+      Consolas,
+      monospace;
+  }
+  .pub-types {
+    padding: 0.65rem 1.35rem 1.1rem;
+  }
+  .pub-types button {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.62rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--pub-line);
+    background: transparent;
+    color: var(--pub-ink);
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.78rem;
+  }
+  .pub-types button:hover span {
+    color: var(--pub-blue);
+  }
+  .pub-types strong {
+    font:
+      0.68rem ui-monospace,
+      SFMono-Regular,
+      Consolas,
+      monospace;
+  }
+  .pub-publications {
+    margin-top: 2.7rem;
+    scroll-margin-top: 90px;
+  }
+  .pub-result-count {
+    color: var(--pub-muted);
+    font-size: 0.75rem;
+  }
+  .pub-table-wrap {
+    margin-top: 1rem;
+    overflow-x: auto;
+    background: var(--pub-card);
+    border: 1px solid var(--pub-line);
+  }
+  .pub-dashboard table {
+    width: 100%;
+    min-width: 930px;
+    border-collapse: collapse;
+  }
+  .pub-dashboard th {
+    padding: 0.8rem 0.9rem;
+    background: #163c70;
+    color: white;
+    text-align: left;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pub-dashboard th:first-child {
+    width: 72px;
+  }
+  .pub-dashboard th:nth-child(2) {
+    width: 48%;
+  }
+  .pub-dashboard th:nth-child(3) {
+    width: 22%;
+  }
+  .pub-dashboard th:nth-child(4) {
+    width: 18%;
+  }
+  .pub-dashboard td {
+    padding: 1rem 0.9rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--pub-line);
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+  .pub-dashboard tbody tr:hover {
+    background: color-mix(in srgb, var(--pub-blue) 5%, transparent);
+  }
+  .pub-year {
+    color: var(--pub-blue);
+    font:
+      800 0.75rem ui-monospace,
+      SFMono-Regular,
+      Consolas,
+      monospace;
+  }
+  .pub-dashboard td > strong {
+    display: block;
+    font-size: 0.86rem;
+    line-height: 1.35;
+  }
+  .pub-dashboard td > span,
+  .pub-dashboard td > small {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--pub-muted);
+  }
+  .pub-theme-tag {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--pub-blue);
+    cursor: pointer;
+    text-align: left;
+    font-weight: 650;
+  }
+  .pub-theme-tag:hover {
+    text-decoration: underline;
+  }
+  .pub-dashboard td > em {
+    display: inline-block;
+    margin: 0.5rem 0 0 0.4rem;
+    padding: 0.12rem 0.35rem;
+    background: #fee2e2;
+    color: #9f3025;
+    border-radius: 0.2rem;
+    font-size: 0.55rem;
+    font-style: normal;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .pub-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .pub-pagination button {
+    border: 1px solid var(--pub-line);
+    background: var(--pub-card);
+    color: var(--pub-ink);
+    border-radius: 0.35rem;
+    padding: 0.55rem 0.75rem;
+    cursor: pointer;
+  }
+  .pub-pagination button:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  .pub-pagination span,
+  .pub-source {
+    color: var(--pub-muted);
+    font-size: 0.72rem;
+  }
+  .pub-source {
+    max-width: 900px;
+    margin: 2rem 0 0;
+    line-height: 1.6;
+  }
+  .pub-empty {
+    padding: 2rem !important;
+    color: var(--pub-muted);
+    text-align: center;
+  }
+  @media (max-width: 1120px) {
+    .pub-workspace {
+      grid-template-columns: 240px minmax(0, 1fr);
+    }
+    .pub-kpis {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pub-chart-grid,
+    .pub-insight-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 760px) {
+    .pub-shell {
+      width: min(100% - 2rem, 1480px);
+    }
+    .pub-hero .pub-shell {
+      padding-block: 2.5rem;
+    }
+    .pub-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .pub-hero h1 {
+      font-size: clamp(2.8rem, 14vw, 4.2rem);
+    }
+    .pub-workspace {
+      display: block;
+      width: 100%;
+    }
+    .pub-filters {
+      position: static;
+      min-height: auto;
+      padding: 1.75rem 1rem;
+      border-right: 0;
+      border-bottom: 1px solid var(--pub-line);
+    }
+    .pub-content {
+      padding: 1.8rem 1rem 4rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .pub-kpis {
+      grid-template-columns: 1fr;
+    }
+    .pub-overview-heading {
+      align-items: flex-start;
+    }
+  }
+</style>
